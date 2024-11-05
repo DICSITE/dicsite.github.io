@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Basic page needs -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Participação</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Carrossel CSS -->
+    <style>
+        /* Container do Carrossel */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Imagens dentro do carrossel */
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+            flex-shrink: 0; /* Impede a redução do tamanho das imagens */
+        }
+
+        /* Botões de Navegação */
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        /* Efeito hover nos botões */
+        .carousel-prev:hover, .carousel-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media screen and (min-width: 1280px) {
+            .carousel-images img{
+                width: 100%;
+            }
+            .carousel {
+                max-width: 70%;
+            }
+            
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Page Wrap -->
+    <div id="page" class="s-pagewrap">
+
+        <!-- Site Header -->
+        <header id="masthead" class="s-header">
+            <div class="s-header__branding">
+                <p class="site-title">
+                    <a href="index.html" rel="home">Dicionário Indígena</a>
+                </p>
+            </div>
+
+            <div class="row s-header__navigation">
+                <nav class="s-header__nav-wrap">
+                    <h3 class="s-header__nav-heading">Navegar para</h3>
+                    <ul class="s-header__nav">
+                        <li><a href="index.html">Ínicio</a></li>
+                        <li class="has-children">
+                            <a href="#0">Participações</a>
+                            <ul class="sub-menu">
+                                <li><a href="femic2022.html">FEMIC 2022</a></li>
+                                <li><a href="femic2023.html">FEMIC 2023</a></li>
+                                <li><a href="ifpe.html">IFPE</a></li>
+                                <li><a href="ficep.html">FICEP</a></li>
+                                <li><a href="febratec.html">FEBRATEC</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="single-standard.html">Quem somos</a></li>
+                        <li><a href="styles.html">Pesquisa</a></li>
+                        <li><a href="about.html">Colaboração</a></li>
+                        <li><a href="contact.html">Contatos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Site Content -->
+        <div id="content" class="s-content s-content--blog">
+            <div class="row entry-wrap">
+                <div class="column lg-12">
+                    <article class="entry format-standard">
+
+                        <header class="entry__header">
+                            <h1 class="entry__title">FICEP 2024</h1>
+                        </header>
+
+                        <!-- Carrossel de Imagens -->
+                        <div class="entry__media" style="text-align: center;">
+                            <div class="carousel">
+                                <div class="carousel-images">
+                                    <img src="images/imagemficep1.png" alt="Imagem 1">
+                                    <img src="images/imagemficep2.png" alt="Imagem 2">
+                                    <img src="images/imagemficep3.png" alt="Imagem 3">
+                                    <img src="images/imagemficep4.png" alt="Imagem 4">
+                                </div>
+                                <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+                                <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+                            </div>
+                        </div>
+
+                        <div class="content-primary">
+                            <p class="drop-cap">
+                                Em abril, estivemos em Porto Rico, participando da FICEP (Fórum internacional de ciência em Puerto Rico). Nossa apresentação aconteceu na cidade de Bayamón, nos dias 24, 25 e 26. Foi uma experiência única poder conhecer pessoas e culturas diferentes ao mesmo tempo em que vivenciávamos uma rica troca no campo da pesquisa, além de divulgar nosso projeto.
+                            </p>
+
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Carrossel JavaScript -->
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            const totalSlides = slides.length;
+            currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+
+            // Move o carrossel com a transformação
+            const carousel = document.querySelector('.carousel-images');
+            const offset = -currentIndex * 100; // Cada slide ocupa 100% da largura
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+</body>
+
+</html>
